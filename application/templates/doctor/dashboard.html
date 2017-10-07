@@ -1,7 +1,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
-    <p> {{doctor_id}} </p>
+<div class="row">
+    <div class="col s12 m10 offset-m1 l8 offset-l2">
+        <ul class="collapsible" data-collapsible="expandable">
+            {% for each_patient in patients %}
+                <li>
+                    <div class="collapsible-header">
+                        <i class="material-icons">account_circle</i>ID: <b>{{each_patient['id']}}</b>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="row"> <div class="col s12">
+
+                        </div> </div>
+                        <!--<span>-->
+                            <!--Lorem ipsum dolor sit amet.-->
+                        <!--</span>-->
+                    </div>
+                </li>
+            {% endfor %}
+            <!--<li>-->
+                <!--<div class="collapsible-header"><i class="material-icons">place</i>Second</div>-->
+                <!--<div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>-->
+                <!--<div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>-->
+            <!--</li>-->
+        </ul>
+    </div>
 </div>
 {% endblock %}
