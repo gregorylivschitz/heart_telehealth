@@ -1,0 +1,27 @@
+<header>
+    <div class="row" style="float: left">
+        <div class="navbar-fixed">
+            <nav data-gumshoe-header class="chameleon transparent no_nav_shadow">
+                <div class="nav-wrapper">
+                    <a href="/" class="brand-logo">
+                        <div class="valign-wrapper">
+                            <img style="width:auto; max-height: 56px" src="{{ url_for('static', filename='images/logo.png') }}">&nbsp;
+                        </div>
+                    </a>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <ul data-gumshoe class="right hide-on-med-and-down">
+                        {% for each in URL_list %}
+                            <li><a data-scroll href="/#{{ each.lower() }}">{{ each }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </nav>
+        </div>
+{#    Bad for SEO but necessary fix for side bar https://github.com/Dogfalo/materialize/issues/3844#}
+        <ul data-gumshoe class="side-nav" id="mobile-demo">
+            {% for each in URL_list %}
+                <li><a data-scroll href="/#{{ each.lower() }}">{{ each }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</header>

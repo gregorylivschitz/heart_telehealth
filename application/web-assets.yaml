@@ -1,0 +1,16 @@
+compressed_js:
+    filters: rjsmin
+    output: js/compressed_js.js
+    contents:
+        - js/gumshoe.min.js
+        - js/jquery.js
+        - js/materialize.min.js
+        - js/smooth-scroll.min.js
+        - js/ready.js
+
+compressed_css:
+    filters: cssmin
+    output: css/compressed_css.css
+    contents:
+        - css/custom.css
+        - css/materialize.css

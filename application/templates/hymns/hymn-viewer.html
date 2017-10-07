@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if number %}
+
+        {% for each_line in open_file('static/hymns/{}.txt'.format(number), 'r') %}
+
+            {{ each_line.rstrip('\n') }}
+
+        {% endfor %}
+
+    {% else %}
+
+        Not Available !
+
+    {% endif %}
+
+{% endblock %}

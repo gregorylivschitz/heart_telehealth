@@ -1,0 +1,25 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <meta name="twitter:title" content="Centenary Methodist Church" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:domain" content="{{ url_for('home.index', _external=True) }} /">
+    <meta name="twitter:description" content="Centenary Methodist Church, Lodhi road is multicultural church located in the heart of New Delhi." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{{url_for('static', filename='images/opengraph-logo.1200x630.png', _external=True)}}" />
+    <meta property="og:description" content="Centenary Methodist Church, Lodhi road is multicultural church located in the heart of New Delhi." />
+    <meta property="og:title" content="Centenary Methodist Church" />
+    <meta property="og:url" content="{{ url_for('home.index', _external=True) }}"/>
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.64x64.png') }}" />
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/apple-touch-icon-152x152.png', _external=True) }}" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    {% assets 'compressed_js' %} <script type="text/javascript" src="{{ ASSET_URL }}"></script> {% endassets %}
+    {% assets 'compressed_css' %} <link rel="stylesheet" href="{{ ASSET_URL }}" type="text/css" /> {% endassets %}
+
+    <title>Centenary Methodist Church</title>
+</head>
