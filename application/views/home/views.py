@@ -12,9 +12,9 @@ def index():
     return render_template('home/index.html', URL_list=URL_list)
 
 
-@home.route('/dashboard')
-@login_required
-def dashboard():
-    return render_template('home/dashboard.html')
+# @home.route('/dashboard')
+# @login_required
+# def dashboard():
+#     return render_template('home/dashboard.html')
 
 

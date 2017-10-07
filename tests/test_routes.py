@@ -32,12 +32,3 @@ class TestAllRoutes(TestCase):
 
         # response = self.tc.get('/dashboard')
         # assert response.status_code == 200
-
-    def test_routes_blueprint_hymns(self):
-        response = self.tc.get('/hymns/724351')
-        assert response.status_code == 200
-        assert 'dummy file'.encode() in response.data
-
-        response = self.tc.post('/hymns/724351')
-        assert response.status_code == 200
-        assert 'dummy file'.encode() in response.data

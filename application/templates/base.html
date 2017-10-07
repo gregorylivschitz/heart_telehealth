@@ -3,10 +3,14 @@
     {% include 'head.html' %}
 
     <body>
-        {% include 'header.html' %}
+        {% with URL_list = URL_list %}
+            {% include 'header.html' %}
+        {% endwith %}
 
-        {% block content %}
-        {% endblock %}
+        <div style="padding-top: 56px">
+            {% block content %}
+            {% endblock %}
+        </div>
 
         {% include 'footer.html' %}
     </body>

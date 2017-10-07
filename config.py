@@ -23,7 +23,7 @@ class DevelopmentConfig(Config):
 
 class TestingConfig(DevelopmentConfig):
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'mysql://cmc_admin_tester:etKh5KL36!qOKm4o@localhost/cmc_testing'
+    SQLALCHEMY_DATABASE_URI = 'mysql://test_user:test_password@localhost/test_database'
 
 
 class ProductionConfig(Config):
