@@ -1,9 +1,36 @@
 from datetime import datetime
 from flask_login import UserMixin
+from sqlalchemy import Column, Integer, ForeignKey
+from sqlalchemy.orm import relationship
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from application import db, login_manager
 
+
+
+class Doctor(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.String(80), unique=True, nullable=False)
+    last_name = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    telephone = db.Column(db.String(120), unique=True, nullable=False)
+    patient = relationship("Patient")
+    def __repr__(self):
+        return '<User %r>' % self.username
+
+class Patient(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.String(80), unique=True, nullable=False)
+    last_name = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    telephone = db.Column(db.String(120), unique=True, nullable=False)
+    ping_time = db.Column(db.String(120), unique=True, nullable=False)
+    weight = db.Column(db.Integer, unique=True, nullable=False)
+    doctor_id = Column(Integer, ForeignKey('doctor.id'))
+
+
+    def __repr__(self):
+        return '<User %r>' % self.username
 
 class User(UserMixin, db.Model):
 
