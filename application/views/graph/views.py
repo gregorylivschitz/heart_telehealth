@@ -15,7 +15,10 @@ import datetime
 @graph.route('/graph')
 def graph():
     # tone_data = pd.read_csv('tone_data')
+    values, labels = patient_get_graph()
+    return render_template('graph/output.html', values=values, labels=labels)
 
+def patient_get_graph():
     multiple_tone = []
     for index, i in enumerate(range(0,24)):
         time_date = datetime.datetime.now() + datetime.timedelta(seconds=index)
@@ -32,7 +35,7 @@ def graph():
         multiple_tone.append(tone_data)
 
     multiple_tone_df = pd.concat(multiple_tone, ignore_index=True)
-    multiple_tone_df.to_csv("C:\\Users\\greg1\\dev\\heart_telehealth\\test_data.csv")
+
 
     size=len(multiple_tone_df)/6
     size = np.math.floor(size)
@@ -54,4 +57,4 @@ def graph():
             values.append(value)
     print(labels)
     print(values)
-    return render_template('graph/output.html', values=values, labels=labels)
+    return values, labels
