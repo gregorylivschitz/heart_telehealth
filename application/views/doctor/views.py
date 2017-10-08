@@ -24,13 +24,15 @@ def doctor_dashboard(doctor_id):
         morris_data, values = patient_get_graph()
         mock_pat_1['high'] = max(values)
         mock_pat_1['low'] = min(values)
+        mock_pat_1['values'] = values
         mock_pat_1['morris_data'] = morris_data
         mock_pat_1['color'] = '#008000'
-    mock_pat[0]['morris_data'][1][0] = 923
+    mock_pat[0]['morris_data'][1][0] = 342.22
+    mock_pat[0]['values'][1] = 342.22
     mock_pat[0]['color'] = '#8b0000'
     for mock_pat_1 in mock_pat:
-        mock_pat_1['high'] = max(values)
-        mock_pat_1['low'] = min(values)
+        mock_pat_1['high'] = max(mock_pat_1['values'])
+        mock_pat_1['low'] = min(mock_pat_1['values'])
     return render_template('doctor/dashboard.html', doctor=None, doctor_id=doctor_id, patients=mock_pat)
     # doctor_obj[doctor_id].patients
 
