@@ -1,7 +1,7 @@
 <header>
     <div class="row" style="float: left">
         <div class="navbar-fixed">
-            <nav data-gumshoe-header class="no_nav_shadow">
+            <nav data-gumshoe-header class="no_nav_shadow blue-grey lighten-5">
                 <div class="nav-wrapper">
                     <a href="/" class="brand-logo">
                         <div class="valign-wrapper">
@@ -11,7 +11,7 @@
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul data-gumshoe class="right hide-on-med-and-down">
                         {% for each in URL_list %}
-                            <li><a data-scroll href="/#{{ each.lower() }}">{{ each }}</a></li>
+                            <li><a data-scroll class="black-text" href="/#{{ each.lower() }}">{{ each }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>

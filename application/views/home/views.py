@@ -3,7 +3,7 @@ from flask_login import login_required
 
 from . import home
 
-URL_list = ['ABOUT', 'SUNDAY', 'FIND', 'CONTACT']
+URL_list = []
 
 
 @home.route('/')

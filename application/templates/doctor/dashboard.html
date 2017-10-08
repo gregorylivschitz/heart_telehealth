@@ -16,11 +16,6 @@
                     </div>
                     <div class="collapsible-body">
                         <div class="row">
-                            <div class="col s12">
-                                <span id="graph"> </span>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col s4">Name  : {{each_patient['name']}}</div>
                             <div class="col s4">Age   : {{each_patient['age']}}</div>
                             <div class="col s4">Weight: {{each_patient['weight']}}</div>
@@ -35,6 +30,54 @@
                         </div>
                     </div>
                 </li>
+
+            <script>
+
+var ctx = document.getElementById("myChart{{each_patient['id']}}").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [{% for item in each_patient['labels'] %}
+                  "{{item}}",
+              {% endfor %}],
+        datasets: [{
+            label: '# of cycle',
+            data: [{% for item in each_patient['values'] %}
+                      {{item}},
+                    {% endfor %}],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        maintainAspectRatio: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+
             {% endfor %}
         </ul>
     </div>
