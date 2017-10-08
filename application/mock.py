@@ -26,7 +26,7 @@ def get_mock_pat():
     'pings': 7,
     'high': 721,
     'low': 523,
-    'last_ping': '2017-04-18',
+    'last_ping': '2017-10-08',
     'status': False
     },
     {
